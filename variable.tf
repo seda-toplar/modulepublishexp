@@ -1,7 +1,7 @@
 variable "base_name" {
-    default = "lunam"
+  default = "lunam"
 }
 
 variable "location" {
-    default = "westeurope"
+  default = "westeurope"
 }
