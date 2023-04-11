@@ -23,7 +23,7 @@ resource "azurerm_policy_definition" "example" {
   name         = "only-deploy-in-westeurope"
   policy_type  = "Custom"
   mode         = "All"
-  display_name = "my-policy-definition"
+  display_name = "my-policy"
  }
 
 resource "azurerm_resource_group_policy_assignment" "example" {
