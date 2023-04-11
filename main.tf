@@ -18,16 +18,16 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
+resource "azurerm_route_table" "example" {
+  name                = "acceptanceTestRouteTable1"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+}
 
-resource "azurerm_policy_definition" "example" {
-  name         = "only-deploy-in-westeurope"
-  policy_type  = "Custom"
-  mode         = "All"
-  display_name = "my-policy"
- }
-
-resource "azurerm_resource_group_policy_assignment" "example" {
-  name                 = "example"
-  resource_group_id    = azurerm_resource_group.rg.id
-  policy_definition_id = azurerm_policy_definition.example.id
+resource "azurerm_route" "example" {
+  name                = "acceptanceTestRoute1"
+  resource_group_name = var.base_name
+  route_table_name    = azurerm_route_table.example.name
+  address_prefix      = "10.1.0.0/16"
+  next_hop_type       = "VnetLocal"
 }

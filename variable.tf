@@ -1,5 +1,5 @@
 variable "base_name" {
-  default = "lunam"
+  default = "lunam122"
 }
 
 variable "location" {
